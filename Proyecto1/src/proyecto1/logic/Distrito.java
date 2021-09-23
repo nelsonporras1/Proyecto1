@@ -9,7 +9,6 @@ package proyecto1.logic;
  *
  * @author 50663
  */
-public class Cliente {
-    
+public class Distrito {
     
 }
