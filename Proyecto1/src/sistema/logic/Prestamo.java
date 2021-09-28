@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto1.logic;
+package sistema.logic;
 
 /**
  *
- * @author 50663
+ * @author 50689
  */
-public class Distrito {
+public class Prestamo {
     
 }
