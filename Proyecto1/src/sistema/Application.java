@@ -50,7 +50,8 @@ public class Application {
           System.out.println( P1.toString());
          
          
-        
+        sistema.presentacion.cliente.View view = new sistema.presentacion.cliente.View();
+        view.setVisible(true);
     }
     
 }
