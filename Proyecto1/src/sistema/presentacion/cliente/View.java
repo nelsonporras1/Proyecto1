@@ -48,8 +48,6 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
        
     }
 
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,11 +65,13 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
         prvinciaLbl = new javax.swing.JLabel();
         cantonLbl = new javax.swing.JLabel();
         distritoLbl = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
         jComboBox3 = new javax.swing.JComboBox<>();
         prestamosBtn = new javax.swing.JButton();
         mapaLbl = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        provinciaTxtField = new javax.swing.JTextField();
+        guardarBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,13 +79,17 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
 
         nombreLbl.setText("Nombre");
 
+        buscarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarBtnActionPerformed(evt);
+            }
+        });
+
         prvinciaLbl.setText("Provincia");
 
         cantonLbl.setText("Canton");
 
         distritoLbl.setText("Distrito");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -98,53 +102,72 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
                 mapaLblMouseMoved(evt);
             }
         });
+        mapaLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mapaLblMouseClicked(evt);
+            }
+        });
+
+        guardarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addComponent(mapaLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(prestamosBtn)
-                .addGap(16, 16, 16))
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(prvinciaLbl)
-                        .addGap(79, 79, 79)
-                        .addComponent(cantonLbl))
+                        .addGap(6, 6, 6)
+                        .addComponent(mapaLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                        .addComponent(prestamosBtn)
+                        .addGap(16, 16, 16))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(nombreLbl)
-                            .addComponent(cedulaLbl))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cedulaTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(prvinciaLbl)
+                                    .addComponent(provinciaTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(47, 47, 47)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cantonLbl))
+                                .addGap(37, 37, 37)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(distritoLbl)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(guardarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(nombreLbl)
+                                    .addComponent(cedulaLbl))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(nombreTxtField)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(distritoLbl))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cedulaTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(nombreTxtField))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cedulaLbl)
-                    .addComponent(cedulaTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buscarBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cedulaLbl)
+                        .addComponent(cedulaTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombreLbl)
@@ -154,20 +177,28 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
                     .addComponent(prvinciaLbl)
                     .addComponent(cantonLbl)
                     .addComponent(distritoLbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(mapaLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(29, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(prestamosBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(151, 151, 151))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(provinciaTxtField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                                .addComponent(prestamosBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(151, 151, 151))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(mapaLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(guardarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         pack();
@@ -177,16 +208,99 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
        
         if(evt.getX() > 17 && evt.getX() < 89  && evt.getY() > 62 && evt.getY() < 126 ||
           evt.getX() > 90 && evt.getX() < 141  && evt.getY() > 69 && evt.getY() < 100 ||
-          evt.getX() > 17 && evt.getX() < 89  && evt.getY() > 62 && evt.getY() < 126 ||
-          evt.getX() > 31 && evt.getX() < 61  && evt.getY() > 7 && evt.getY() < 69) {
+          evt.getX() > 69 && evt.getX() < 114  && evt.getY() > 46 && evt.getY() < 63 ||
+          evt.getX() > 31 && evt.getX() < 69  && evt.getY() > 7 && evt.getY() < 69) {
           mapaLbl.setIcon(mapas[5]);
-      } 
-       else{
-            mapaLbl.setIcon(mapas[0]);
-       }
-      
-      
+        } 
+        else if(evt.getX() > 75 && evt.getX() < 153  && evt.getY() > 24 && evt.getY() < 46 ||
+          evt.getX() > 112 && evt.getX() < 154  && evt.getY() > 47 && evt.getY() < 66 ||
+          evt.getX() > 155 && evt.getX() < 208  && evt.getY() > 33 && evt.getY() < 122){
+            mapaLbl.setIcon(mapas[2]);
+        }
+        else if(evt.getX() > 210 && evt.getX() < 252  && evt.getY() > 46 && evt.getY() < 106 ||
+          evt.getX() > 210 && evt.getX() < 233  && evt.getY() > 107 && evt.getY() < 121){
+            mapaLbl.setIcon(mapas[3]);
+        }
+        else if(evt.getX() > 254 && evt.getX() < 294  && evt.getY() > 55 && evt.getY() < 118 ||
+          evt.getX() > 295 && evt.getX() < 324  && evt.getY() > 97 && evt.getY() < 118 ||
+          evt.getX() > 310 && evt.getX() < 358  && evt.getY() > 122 && evt.getY() < 143 ||
+          evt.getX() > 299 && evt.getX() < 363  && evt.getY() > 149 && evt.getY() < 184){
+            mapaLbl.setIcon(mapas[7]);
+        }
+         else if(evt.getX() > 89 && evt.getX() < 115  && evt.getY() > 118 && evt.getY() < 152 ||
+          evt.getX() > 123 && evt.getX() < 151  && evt.getY() > 92 && evt.getY() < 120 ||
+          evt.getX() > 154 && evt.getX() < 162  && evt.getY() > 128 && evt.getY() < 158 ||
+          evt.getX() > 183 && evt.getX() < 217  && evt.getY() > 157 && evt.getY() < 170 ||
+          evt.getX() > 277 && evt.getX() < 294  && evt.getY() > 205 && evt.getY() < 246 ||
+          evt.getX() > 273 && evt.getX() < 311  && evt.getY() > 247 && evt.getY() < 293 ||
+          evt.getX() > 297 && evt.getX() < 338  && evt.getY() > 183 && evt.getY() < 233 ||
+          evt.getX() > 340 && evt.getX() < 365  && evt.getY() > 203 && evt.getY() < 274){
+            mapaLbl.setIcon(mapas[6]);
+        }
+         else if(evt.getX() > 234 && evt.getX() < 308  && evt.getY() > 122 && evt.getY() < 147 ||
+         evt.getX() > 250 && evt.getX() < 296  && evt.getY() > 148 && evt.getY() < 160){
+               mapaLbl.setIcon(mapas[4]);
+        }
+         else if(evt.getX() > 168 && evt.getX() < 230  && evt.getY() > 127 && evt.getY() < 254 ||
+         evt.getX() > 224 && evt.getX() < 264  && evt.getY() > 159 && evt.getY() < 176 ||
+         evt.getX() > 268 && evt.getX() < 294  && evt.getY() > 162 && evt.getY() < 202){
+               mapaLbl.setIcon(mapas[1]);
+        }
+       
     }//GEN-LAST:event_mapaLblMouseMoved
+
+    private void mapaLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mapaLblMouseClicked
+        if(evt.getX() > 17 && evt.getX() < 89  && evt.getY() > 62 && evt.getY() < 126 ||
+          evt.getX() > 90 && evt.getX() < 141  && evt.getY() > 69 && evt.getY() < 100 ||
+          evt.getX() > 69 && evt.getX() < 114  && evt.getY() > 46 && evt.getY() < 63 ||
+          evt.getX() > 31 && evt.getX() < 69  && evt.getY() > 7 && evt.getY() < 69) {
+          mapaLbl.setIcon(mapas[5]);
+        } 
+        else if(evt.getX() > 75 && evt.getX() < 153  && evt.getY() > 24 && evt.getY() < 46 ||
+          evt.getX() > 112 && evt.getX() < 154  && evt.getY() > 47 && evt.getY() < 66 ||
+          evt.getX() > 155 && evt.getX() < 208  && evt.getY() > 33 && evt.getY() < 122){
+            mapaLbl.setIcon(mapas[2]);
+             provinciaTxtField.setText("Alajuela");
+        }
+        else if(evt.getX() > 210 && evt.getX() < 252  && evt.getY() > 46 && evt.getY() < 106 ||
+          evt.getX() > 210 && evt.getX() < 233  && evt.getY() > 107 && evt.getY() < 121){
+            mapaLbl.setIcon(mapas[3]);
+        }
+        else if(evt.getX() > 254 && evt.getX() < 294  && evt.getY() > 55 && evt.getY() < 118 ||
+          evt.getX() > 295 && evt.getX() < 324  && evt.getY() > 97 && evt.getY() < 118 ||
+          evt.getX() > 310 && evt.getX() < 358  && evt.getY() > 122 && evt.getY() < 143 ||
+          evt.getX() > 299 && evt.getX() < 363  && evt.getY() > 149 && evt.getY() < 184){
+            mapaLbl.setIcon(mapas[7]);
+        }
+         else if(evt.getX() > 89 && evt.getX() < 115  && evt.getY() > 118 && evt.getY() < 152 ||
+          evt.getX() > 123 && evt.getX() < 151  && evt.getY() > 92 && evt.getY() < 120 ||
+          evt.getX() > 154 && evt.getX() < 162  && evt.getY() > 128 && evt.getY() < 158 ||
+          evt.getX() > 183 && evt.getX() < 217  && evt.getY() > 157 && evt.getY() < 170 ||
+          evt.getX() > 277 && evt.getX() < 294  && evt.getY() > 205 && evt.getY() < 246 ||
+          evt.getX() > 273 && evt.getX() < 311  && evt.getY() > 247 && evt.getY() < 293 ||
+          evt.getX() > 297 && evt.getX() < 338  && evt.getY() > 183 && evt.getY() < 233 ||
+          evt.getX() > 340 && evt.getX() < 365  && evt.getY() > 203 && evt.getY() < 274){
+            mapaLbl.setIcon(mapas[6]);
+        }
+         else if(evt.getX() > 234 && evt.getX() < 308  && evt.getY() > 122 && evt.getY() < 147 ||
+         evt.getX() > 250 && evt.getX() < 296  && evt.getY() > 148 && evt.getY() < 160){
+               mapaLbl.setIcon(mapas[4]);
+        }
+         else if(evt.getX() > 168 && evt.getX() < 230  && evt.getY() > 127 && evt.getY() < 254 ||
+         evt.getX() > 224 && evt.getX() < 264  && evt.getY() > 159 && evt.getY() < 176 ||
+         evt.getX() > 268 && evt.getX() < 294  && evt.getY() > 162 && evt.getY() < 202){
+               mapaLbl.setIcon(mapas[1]);
+               provinciaTxtField.setText("San Jose");
+        }
+    }//GEN-LAST:event_mapaLblMouseClicked
+
+    private void guardarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnActionPerformed
+       
+    }//GEN-LAST:event_guardarBtnActionPerformed
+
+    private void buscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBtnActionPerformed
+        
+    }//GEN-LAST:event_buscarBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,13 +313,15 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
     private javax.swing.JLabel cedulaLbl;
     private javax.swing.JTextField cedulaTxtField;
     private javax.swing.JLabel distritoLbl;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton guardarBtn;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel mapaLbl;
     private javax.swing.JLabel nombreLbl;
     private javax.swing.JTextField nombreTxtField;
     private javax.swing.JButton prestamosBtn;
+    private javax.swing.JTextField provinciaTxtField;
     private javax.swing.JLabel prvinciaLbl;
     // End of variables declaration//GEN-END:variables
 
@@ -222,7 +338,6 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
         
         mapas= new ImageIcon[cantidad];
         
-        
         for(int i=0; i< cantidad; i++){
             
             image = new ImageIcon(getClass().getResource("/sistema/provincias/image"+i+".png"));
@@ -232,8 +347,6 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
             
              mapas[i]= (ImageIcon) imagen;
         }
-        
-      
           mapaLbl.setIcon(mapas[0]);
     }
 }

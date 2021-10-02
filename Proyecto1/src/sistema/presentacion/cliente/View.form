@@ -23,48 +23,60 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="28" max="32767" attributes="0"/>
-              <Component id="mapaLbl" min="-2" pref="406" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="prestamosBtn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="prvinciaLbl" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                      <Component id="cantonLbl" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                      <Component id="mapaLbl" min="-2" pref="406" max="-2" attributes="0"/>
+                      <EmptySpace pref="58" max="32767" attributes="0"/>
+                      <Component id="prestamosBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="nombreLbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="cedulaLbl" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="cedulaTxtField" pref="97" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="buscarBtn" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="prvinciaLbl" min="-2" max="-2" attributes="0"/>
+                                  <Component id="provinciaTxtField" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jComboBox2" min="-2" pref="104" max="-2" attributes="0"/>
+                                  <Component id="cantonLbl" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="distritoLbl" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jComboBox3" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
+                                          <Component id="jLabel1" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="guardarBtn" min="-2" pref="41" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <Component id="nombreTxtField" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="nombreLbl" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cedulaLbl" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="cedulaTxtField" pref="97" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="buscarBtn" min="-2" pref="38" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="nombreTxtField" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jComboBox1" min="-2" pref="114" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jComboBox2" min="-2" pref="104" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jComboBox3" min="-2" pref="118" max="-2" attributes="0"/>
-                  <Component id="distritoLbl" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -72,10 +84,12 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cedulaLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cedulaTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="buscarBtn" alignment="1" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cedulaLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cedulaTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -88,22 +102,34 @@
                   <Component id="cantonLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="distritoLbl" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox3" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="mapaLbl" min="-2" pref="301" max="-2" attributes="0"/>
-                      <EmptySpace pref="29" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jComboBox3" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBox2" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="provinciaTxtField" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace pref="122" max="32767" attributes="0"/>
+                              <Component id="prestamosBtn" min="-2" pref="75" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="mapaLbl" min="-2" pref="301" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="prestamosBtn" min="-2" pref="75" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="guardarBtn" min="-2" pref="37" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -126,6 +152,9 @@
     <Component class="javax.swing.JTextField" name="nombreTxtField">
     </Component>
     <Component class="javax.swing.JButton" name="buscarBtn">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buscarBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="prvinciaLbl">
       <Properties>
@@ -141,21 +170,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Distrito"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBox2">
       <Properties>
@@ -195,6 +209,16 @@
     <Component class="javax.swing.JLabel" name="mapaLbl">
       <Events>
         <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="mapaLblMouseMoved"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mapaLblMouseClicked"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+    </Component>
+    <Component class="javax.swing.JTextField" name="provinciaTxtField">
+    </Component>
+    <Component class="javax.swing.JButton" name="guardarBtn">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guardarBtnActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
