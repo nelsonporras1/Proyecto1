@@ -6,7 +6,9 @@
 package sistema.presentacion.cliente;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import sistema.logic.Cliente;
+import sistema.logic.Service;
 
 /**
  *
@@ -28,6 +30,31 @@ public class Controller {
         view.setController(this);
     }
     
-    
+      public void show(){
+        this.view.setVisible(true);
+    }
+      
+     public void buscarCliente(String cedula){
+        try {
+            Cliente cliente = Service.instance().buscarCliente(cedula);
+            model.setCliente(cliente);
+            model.commit();
+        } catch (Exception ex) {
+            model.setCliente(new Cliente());
+            model.commit();
+        }
+    }
+     
+     public void addCliente(Cliente cliente){
+         
+         try{
+         Service.instance().addCliente(cliente);
+         model.setCliente(new Cliente());
+         model.commit();
+         }
+          catch (Exception ex) {
+            
+        }
+     }
     
 }

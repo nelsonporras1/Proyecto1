@@ -11,7 +11,7 @@ import java.util.Observable;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-
+import sistema.logic.Cliente;
 /**
  *
  * @author 50663
@@ -65,8 +65,8 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
         prvinciaLbl = new javax.swing.JLabel();
         cantonLbl = new javax.swing.JLabel();
         distritoLbl = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cantonComboBox = new javax.swing.JComboBox<>();
+        distritoComboBox = new javax.swing.JComboBox<>();
         prestamosBtn = new javax.swing.JButton();
         mapaLbl = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -91,9 +91,9 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
 
         distritoLbl.setText("Distrito");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cantonComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        distritoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         prestamosBtn.setText("\nPrestamos");
 
@@ -135,14 +135,14 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
                                     .addComponent(provinciaTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(47, 47, 47)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cantonComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cantonLbl))
                                 .addGap(37, 37, 37)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(distritoLbl)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(distritoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(18, 18, 18)
                                         .addComponent(guardarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -183,9 +183,9 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(distritoComboBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cantonComboBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(provinciaTxtField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -295,11 +295,11 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
     }//GEN-LAST:event_mapaLblMouseClicked
 
     private void guardarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnActionPerformed
-       
+       controller.addCliente(new Cliente(cedulaTxtField.getText(),nombreTxtField.getText(),null,null,null));
     }//GEN-LAST:event_guardarBtnActionPerformed
 
     private void buscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBtnActionPerformed
-        
+        controller.buscarCliente(cedulaTxtField.getText());
     }//GEN-LAST:event_buscarBtnActionPerformed
 
     /**
@@ -309,13 +309,13 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscarBtn;
+    private javax.swing.JComboBox<String> cantonComboBox;
     private javax.swing.JLabel cantonLbl;
     private javax.swing.JLabel cedulaLbl;
     private javax.swing.JTextField cedulaTxtField;
+    private javax.swing.JComboBox<String> distritoComboBox;
     private javax.swing.JLabel distritoLbl;
     private javax.swing.JButton guardarBtn;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel mapaLbl;
     private javax.swing.JLabel nombreLbl;
@@ -327,6 +327,9 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
 
     @Override
     public void update(Observable o, Object arg) {
+       Cliente cliente = model.getCliente();
+       cedulaTxtField.setText(cliente.getCedula());
+       nombreTxtField.setText(cliente.getNombre());
        
     }
     
@@ -334,6 +337,7 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
     ImageIcon[] mapas;
     ImageIcon image;
     ImageIcon imagen;
+    
     public void cargarMapas() {
         
         mapas= new ImageIcon[cantidad];

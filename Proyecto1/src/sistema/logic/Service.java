@@ -23,6 +23,25 @@ public class Service {
     
     // Service data
       private Data data;
+ 
+      //methods 
+ 
+     public Cliente buscarCliente(String cedula){
+          
+        Cliente cliente = data.getClientes().stream().filter(c->c.getCedula().equals(cedula)).findFirst().orElse(null);
+        return cliente;  
+    }
+     
+     public void addCliente(Cliente cliente){
+         
+         Cliente newCliente = data.getClientes().stream().filter(c->c.getCedula().equals(cliente.getCedula())).findFirst().orElse(null);
+         
+         if(newCliente == null){
+            data.getClientes().add(cliente);
+         }
+     }
       
       
+      
+     
 }

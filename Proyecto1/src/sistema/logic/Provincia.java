@@ -9,8 +9,9 @@ import java.util.List;
 
 
 public class Provincia {
+       int numero;
        String nombre;
-    List<Canton> cantones;
+       List<Canton> cantones;
 
     public Provincia(String nombre, List<Canton> cantones) {
         this.nombre = nombre;
@@ -33,11 +34,18 @@ public class Provincia {
         return cantones;
     }
 
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+    
     @Override
     public String toString() {
         return "Provincia{" + "nombre=" + nombre + ", cantones=" + cantones + '}';
     }
-    
     
     
 }
