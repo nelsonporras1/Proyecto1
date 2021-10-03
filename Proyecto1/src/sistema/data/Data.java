@@ -7,6 +7,9 @@ package sistema.data;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import sistema.logic.Canton;
 import sistema.logic.Cliente;
 import sistema.logic.Distrito;
@@ -16,19 +19,21 @@ import sistema.logic.Provincia;
  *
  * @author 50663
  */
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Data {
     
     private List<Cliente> clientes;
     private List<Provincia> provincias;
     private List<Canton> cantones;
     private List<Distrito> distritos;
-    
+   
     public Data(){
         
-        clientes = new ArrayList<>();
-        provincias= new ArrayList<>();
-        cantones= new ArrayList<>();
-        distritos= new ArrayList<>();
+         clientes = new ArrayList<>();
+         provincias= new ArrayList<>();
+         cantones= new ArrayList<>();
+         distritos= new ArrayList<>();
     }
 
     public List<Cliente> getClientes() {

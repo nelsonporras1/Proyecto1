@@ -26,10 +26,13 @@ public class Service {
  
       //methods 
  
-     public Cliente buscarCliente(String cedula){
+     public Cliente buscarCliente(String cedula) throws Exception{
           
         Cliente cliente = data.getClientes().stream().filter(c->c.getCedula().equals(cedula)).findFirst().orElse(null);
-        return cliente;  
+        if(cliente != null) {return cliente;  }
+        else{ throw new Exception("Cliente no existe");  }
+        
+        
     }
      
      public void addCliente(Cliente cliente){

@@ -244,33 +244,35 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
          else if(evt.getX() > 168 && evt.getX() < 230  && evt.getY() > 127 && evt.getY() < 254 ||
          evt.getX() > 224 && evt.getX() < 264  && evt.getY() > 159 && evt.getY() < 176 ||
          evt.getX() > 268 && evt.getX() < 294  && evt.getY() > 162 && evt.getY() < 202){
-               mapaLbl.setIcon(mapas[1]);
+            mapaLbl.setIcon(mapas[1]);
         }
        
     }//GEN-LAST:event_mapaLblMouseMoved
 
     private void mapaLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mapaLblMouseClicked
         if(evt.getX() > 17 && evt.getX() < 89  && evt.getY() > 62 && evt.getY() < 126 ||
-          evt.getX() > 90 && evt.getX() < 141  && evt.getY() > 69 && evt.getY() < 100 ||
-          evt.getX() > 69 && evt.getX() < 114  && evt.getY() > 46 && evt.getY() < 63 ||
-          evt.getX() > 31 && evt.getX() < 69  && evt.getY() > 7 && evt.getY() < 69) {
-          mapaLbl.setIcon(mapas[5]);
+        evt.getX() > 90 && evt.getX() < 141  && evt.getY() > 69 && evt.getY() < 100 ||
+        evt.getX() > 69 && evt.getX() < 114  && evt.getY() > 46 && evt.getY() < 63 ||
+        evt.getX() > 31 && evt.getX() < 69  && evt.getY() > 7 && evt.getY() < 69) {
+           mapaLbl.setIcon(mapas[5]);
         } 
         else if(evt.getX() > 75 && evt.getX() < 153  && evt.getY() > 24 && evt.getY() < 46 ||
           evt.getX() > 112 && evt.getX() < 154  && evt.getY() > 47 && evt.getY() < 66 ||
           evt.getX() > 155 && evt.getX() < 208  && evt.getY() > 33 && evt.getY() < 122){
             mapaLbl.setIcon(mapas[2]);
-             provinciaTxtField.setText("Alajuela");
+            provinciaTxtField.setText("Alajuela");
         }
         else if(evt.getX() > 210 && evt.getX() < 252  && evt.getY() > 46 && evt.getY() < 106 ||
           evt.getX() > 210 && evt.getX() < 233  && evt.getY() > 107 && evt.getY() < 121){
             mapaLbl.setIcon(mapas[3]);
+            provinciaTxtField.setText("Heredia");
         }
         else if(evt.getX() > 254 && evt.getX() < 294  && evt.getY() > 55 && evt.getY() < 118 ||
           evt.getX() > 295 && evt.getX() < 324  && evt.getY() > 97 && evt.getY() < 118 ||
           evt.getX() > 310 && evt.getX() < 358  && evt.getY() > 122 && evt.getY() < 143 ||
           evt.getX() > 299 && evt.getX() < 363  && evt.getY() > 149 && evt.getY() < 184){
             mapaLbl.setIcon(mapas[7]);
+            provinciaTxtField.setText("Cartago");
         }
          else if(evt.getX() > 89 && evt.getX() < 115  && evt.getY() > 118 && evt.getY() < 152 ||
           evt.getX() > 123 && evt.getX() < 151  && evt.getY() > 92 && evt.getY() < 120 ||
@@ -281,25 +283,28 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
           evt.getX() > 297 && evt.getX() < 338  && evt.getY() > 183 && evt.getY() < 233 ||
           evt.getX() > 340 && evt.getX() < 365  && evt.getY() > 203 && evt.getY() < 274){
             mapaLbl.setIcon(mapas[6]);
+            provinciaTxtField.setText("Limon");
         }
          else if(evt.getX() > 234 && evt.getX() < 308  && evt.getY() > 122 && evt.getY() < 147 ||
-         evt.getX() > 250 && evt.getX() < 296  && evt.getY() > 148 && evt.getY() < 160){
+        evt.getX() > 250 && evt.getX() < 296  && evt.getY() > 148 && evt.getY() < 160){
                mapaLbl.setIcon(mapas[4]);
         }
          else if(evt.getX() > 168 && evt.getX() < 230  && evt.getY() > 127 && evt.getY() < 254 ||
          evt.getX() > 224 && evt.getX() < 264  && evt.getY() > 159 && evt.getY() < 176 ||
          evt.getX() > 268 && evt.getX() < 294  && evt.getY() > 162 && evt.getY() < 202){
-               mapaLbl.setIcon(mapas[1]);
-               provinciaTxtField.setText("San Jose");
+            mapaLbl.setIcon(mapas[1]);
+            provinciaTxtField.setText("Heredia");
         }
     }//GEN-LAST:event_mapaLblMouseClicked
 
     private void guardarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnActionPerformed
-       controller.addCliente(new Cliente(cedulaTxtField.getText(),nombreTxtField.getText(),null,null,null));
+     //  controller.addCliente(new Cliente(cedulaTxtField.getText(),nombreTxtField.getText(),null,null,null));
     }//GEN-LAST:event_guardarBtnActionPerformed
 
     private void buscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBtnActionPerformed
-        controller.buscarCliente(cedulaTxtField.getText());
+       controller.buscarCliente(cedulaTxtField.getText());
+       
+       //this method is abo
     }//GEN-LAST:event_buscarBtnActionPerformed
 
     /**
