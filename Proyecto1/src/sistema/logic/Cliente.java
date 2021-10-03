@@ -5,26 +5,16 @@
  */
 package sistema.logic;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlIDREF;
-
 /**
  *
  * @author 50663
  */
-@XmlAccessorType(XmlAccessType.FIELD)
 public class Cliente {
     
-  @XmlID      
   private String cedula;
   private String nombre;
-   @XmlIDREF
   private Provincia provincia;
-   @XmlIDREF
   private Canton canton;
-   @XmlIDREF
   private Distrito distrito;
 
     public Cliente(String cedula, String nombre, Provincia provincia, Canton canton, Distrito distrito) {
