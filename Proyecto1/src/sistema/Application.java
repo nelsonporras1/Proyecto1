@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import sistema.logic.Canton;
 import sistema.logic.Distrito;
+import sistema.logic.Service;
 
 /**
  *
@@ -19,35 +20,23 @@ public class Application {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    
+    public static sistema.presentacion.cliente.Model model;
+    public static sistema.presentacion.cliente.View view;
+    public static sistema.presentacion.cliente.Controller controller;
+    
+    public static void main(String[] args) throws Exception {
        
-        sistema.logic.Distrito D1=new sistema.logic.Distrito("San Lorenzo") ;
-        sistema.logic.Distrito D2=new sistema.logic.Distrito("San Joaquin") ;
-        sistema.logic.Distrito D3=new sistema.logic.Distrito("Llorente") ;
-        sistema.logic.Distrito D4=new sistema.logic.Distrito("San Juan") ;
-        sistema.logic.Distrito D5=new sistema.logic.Distrito("San Pedro") ;
-        
-         List<Distrito> distritos = new ArrayList<Distrito>();
-         List<Distrito> distritos2 = new ArrayList<Distrito>();
-        distritos.add(D1);
-        distritos.add(D2);
-        distritos.add(D3);
-        distritos2.add(D4);
-        distritos2.add(D5);
-        
-        
-        sistema.logic.Canton C1 =new sistema.logic.Canton("Flores",distritos) ;
-        sistema.logic.Canton C2 =new sistema.logic.Canton("Santa Barbara",distritos2) ;
-        List<Canton> cantones = new ArrayList<Canton>();
-        
-         cantones.add(C1);
-         cantones.add(C2);
-         
-         sistema.logic.Provincia P1 =new sistema.logic.Provincia("Heredia",cantones) ;
+       model = new sistema.presentacion.cliente.Model();
+       view = new sistema.presentacion.cliente.View();
+       controller = new sistema.presentacion.cliente.Controller(model, view);
        
+       sistema.logic.Service service = new sistema.logic.Service();
+       
+
         
            
-          System.out.println( P1.toString());
+          //System.out.println( P1.toString());
          
          
         //sistema.presentacion.cliente.View view = new sistema.presentacion.cliente.View();
@@ -55,6 +44,12 @@ public class Application {
         
          sistema.presentacion.prestamo.View view = new sistema.presentacion.prestamo.View();
         view.setVisible(true);
+        
+        
+
+       //System.out.println(service.buscarCliente("222"));
+      // controller.show();
+// 959b41abfb30a91721b55bc4622433f5e0fa62d8
     }
     
 }

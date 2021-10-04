@@ -5,24 +5,39 @@
  */
 package sistema.logic;
 
+import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlIDREF;
 
-
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Provincia {
-       int numero;
-       String nombre;
-       List<Canton> cantones;
+    
+    @XmlID      
+    private int numero;
+    private String nombre;
+    @XmlIDREF 
+    private List<Canton> cantones;
 
-    public Provincia(String nombre, List<Canton> cantones) {
+    public Provincia(int numero,String nombre, List<Canton> cantones) {
+        this.numero = numero;
         this.nombre = nombre;
         this.cantones = cantones;
     }
 
+    public Provincia() {
+        this.numero=0;
+        this.nombre="";
+        this.cantones = new ArrayList<>();
+    }
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public void setCantones(List<Canton> cantones) {
+    public void setCanton(List<Canton> cantones) {
         this.cantones = cantones;
     }
 
@@ -30,7 +45,7 @@ public class Provincia {
         return nombre;
     }
 
-    public List<Canton> getCantones() {
+    public List<Canton> getCanton() {
         return cantones;
     }
 
@@ -44,7 +59,7 @@ public class Provincia {
     
     @Override
     public String toString() {
-        return "Provincia{" + "nombre=" + nombre + ", cantones=" + cantones + '}';
+        return nombre;
     }
     
     
