@@ -9,6 +9,6 @@ package sistema.presentacion.prestamo;
  *
  * @author 50663
  */
-public class Model {
+public class prestamoTableModel {
     
 }

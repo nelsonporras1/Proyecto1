@@ -25,9 +25,9 @@ public class Application {
     public static sistema.presentacion.cliente.View viewCliente;
     public static sistema.presentacion.cliente.Controller controllerCliente;
     
-    public static sistema.presentacion.prestamo.Model modelPrestamo;
-    public static sistema.presentacion.prestamo.View viewPrestamo;
-      public static sistema.presentacion.prestamo.Controller controllerPrestamo;
+    public static sistema.presentacion.mensualidad.Model modelPrestamo;
+    public static sistema.presentacion.mensualidad.View viewPrestamo;
+      public static sistema.presentacion.mensualidad.Controller controllerPrestamo;
     
     
     public static void main(String[] args) throws Exception {
@@ -36,11 +36,11 @@ public class Application {
        viewCliente = new sistema.presentacion.cliente.View();
        controllerCliente = new sistema.presentacion.cliente.Controller(modelCliente, viewCliente);
     
-       modelPrestamo = new sistema.presentacion.prestamo.Model();
-       viewPrestamo = new sistema.presentacion.prestamo.View();
-       controllerPrestamo = new sistema.presentacion.prestamo.Controller(modelPrestamo,viewPrestamo);
+       modelPrestamo = new sistema.presentacion.mensualidad.Model();
+       viewPrestamo = new sistema.presentacion.mensualidad.View();
+       controllerPrestamo = new sistema.presentacion.mensualidad.Controller(modelPrestamo,viewPrestamo);
         
-      controllerPrestamo.show();
+       controllerPrestamo.show();
 
        //System.out.println(service.buscarCliente("222"));
       // controller.show();

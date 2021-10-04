@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sistema.presentacion.prestamo;
+package sistema.presentacion.mensualidad;
 
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -13,11 +13,11 @@ import sistema.logic.Prestamo;
  *
  * @author 50689
  */
-public class PrestamoTableModel extends AbstractTableModel implements TableModel {
+public class MensualidadTableModel extends AbstractTableModel implements TableModel {
     String[] cols ={"Mensualidad","Saldo","Interes","Amortizacion" };
     List<Prestamo> rows;
 
-    public  PrestamoTableModel(List<Prestamo> rows){
+    public  MensualidadTableModel(List<Prestamo> rows){
         this.rows=rows;
     }
 
