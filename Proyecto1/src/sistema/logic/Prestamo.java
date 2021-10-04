@@ -18,6 +18,9 @@ public class Prestamo {
  private double plazo;
  private double tasaInteres;
 
+    public Prestamo() {
+    }
+
     public Prestamo(double monto, double plazo, double tasaInteres) {
         this.monto = monto;
         this.plazo = plazo;

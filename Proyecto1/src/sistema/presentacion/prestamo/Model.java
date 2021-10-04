@@ -12,6 +12,8 @@ import java.util.Observer;
 import sistema.logic.Cliente;
 import sistema.logic.Prestamo;
 
+
+
 public class Model extends Observable{
     
     // Model attributes here
@@ -21,20 +23,20 @@ public class Model extends Observable{
     List<Prestamo> prestamos;
     List<Cliente> clientes;
 
-    public Factura getFactura() {
-        return factura;
+    public Prestamo getPrestamo() {
+        return prestamo;
     }
 
-    public void setFactura(Factura factura) {
-        this.factura = factura;
+    public void setPrestamo(Prestamo prestamo) {
+        this.prestamo = prestamo;
     }
 
-    public List<Factura> getFacturas() {
-        return facturas;
+    public List<Prestamo> getPrestamos() {
+        return prestamos;
     }
 
-    public void setFacturas(List<Factura> facturas) {
-        this.facturas = facturas;
+    public void setFacturas(List<Prestamo> prestamos) {
+        this.prestamos = prestamos;
     }
 
     public List<Cliente> getClientes() {
@@ -56,7 +58,12 @@ public class Model extends Observable{
         this.setChanged();
         this.notifyObservers();
     }
+
+    void addObserver(View aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
+
 
 
