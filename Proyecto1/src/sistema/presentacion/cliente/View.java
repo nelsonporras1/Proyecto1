@@ -77,6 +77,11 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
         guardarBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         cedulaLbl.setText("Cedula");
 
@@ -302,13 +307,17 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
     }//GEN-LAST:event_mapaLblMouseClicked
 
     private void guardarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnActionPerformed
-       controller.addCliente(new Cliente(cedulaTxtField.getText(),nombreTxtField.getText(), new Provincia(), new Canton(), new Distrito()));
+       controller.addCliente(new Cliente(cedulaTxtField.getText(),nombreTxtField.getText(), 11111,new Provincia(), new Canton(), new Distrito()));
     }//GEN-LAST:event_guardarBtnActionPerformed
 
     private void buscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBtnActionPerformed
        controller.buscarCliente(cedulaTxtField.getText());
        
     }//GEN-LAST:event_buscarBtnActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        controller.exit();
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments

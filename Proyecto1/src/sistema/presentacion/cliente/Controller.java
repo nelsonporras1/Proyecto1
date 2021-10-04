@@ -33,6 +33,10 @@ public class Controller {
         this.view.setVisible(true);
     }
       
+      public void exit(){
+        Service.instance().store();
+    }
+      
      public void buscarCliente(String cedula){
         try {
             Cliente cliente = Service.instance().buscarCliente(cedula);
