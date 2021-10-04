@@ -6,6 +6,9 @@
 package sistema.presentacion.cliente;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import sistema.Application;
 import sistema.logic.Cliente;
 import sistema.logic.Service;
 
@@ -32,10 +35,16 @@ public class Controller {
       public void show(){
         this.view.setVisible(true);
     }
-      public void showPrestamo(){
-          this.view.setVisible(false);
-          
-          sistema.Application.controllerPrestamo.show();
+      
+      public void showPrestamo(String cedula){
+         
+        try {
+             Application.controllerPrestamo.setCliente(Service.instance().buscarCliente(cedula));
+             this.view.setVisible(false);
+             Application.controllerPrestamo.show();
+        } catch (Exception ex) {
+        }
+         
       }
       
       public void exit(){
@@ -62,10 +71,7 @@ public class Controller {
          model.commit();
          }
           catch (Exception ex) {
-            
         }
      }
-     
-
     
 }

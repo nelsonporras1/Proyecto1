@@ -18,7 +18,6 @@ import sistema.logic.Prestamo;
 public class Model extends Observable {
     
     Cliente cliente;
-    List<Prestamo> prestamos;
 
     public Cliente getCliente() {
         return cliente;
@@ -27,15 +26,6 @@ public class Model extends Observable {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-
-    public List<Prestamo> getPrestamos() {
-        return prestamos;
-    }
-
-    public void setPrestamos(List<Prestamo> prestamos) {
-        this.prestamos = prestamos;
-    }
-    
     
     @Override
     public synchronized void addObserver(Observer o) {

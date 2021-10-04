@@ -6,6 +6,7 @@
 package sistema.presentacion.prestamo;
 
 import java.util.Observable;
+import sistema.logic.Cliente;
 import sistema.presentacion.mensualidad.MensualidadTableModel;
 
 /**
@@ -58,7 +59,7 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
         prestamoTable = new javax.swing.JTable();
         agregarBtn = new javax.swing.JButton();
         buscarBtn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        regresarBtn = new javax.swing.JButton();
         montoLbl = new javax.swing.JLabel();
         descripcionLbl = new javax.swing.JLabel();
         plazoLbl = new javax.swing.JLabel();
@@ -103,10 +104,10 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
             }
         });
 
-        jButton1.setText("Regresar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        regresarBtn.setText("Regresar");
+        regresarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                regresarBtnActionPerformed(evt);
             }
         });
 
@@ -129,7 +130,7 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(nombreLbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(nombreTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
@@ -140,7 +141,7 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
                                 .addGap(18, 18, 18)
                                 .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(regresarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -163,18 +164,18 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
                                     .addComponent(descripcionTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(19, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(montoLbl)
                         .addGap(57, 57, 57)
-                        .addComponent(plazoLbl)
-                        .addGap(328, 328, 328))
+                        .addComponent(plazoLbl))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(idTextField)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(idTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(341, 341, 341))))
+                        .addGap(13, 13, 13)))
+                .addGap(328, 328, 328))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,7 +183,7 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombreLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nombreTxtField))
+                    .addComponent(nombreTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -207,7 +208,7 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(agregarBtn)
                     .addComponent(buscarBtn)
-                    .addComponent(jButton1))
+                    .addComponent(regresarBtn))
                 .addContainerGap())
         );
 
@@ -222,9 +223,9 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
         // TODO add your handling code here:
     }//GEN-LAST:event_buscarBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void regresarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarBtnActionPerformed
+        controller.exit();
+    }//GEN-LAST:event_regresarBtnActionPerformed
     
     
     /**
@@ -243,7 +244,6 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
     private javax.swing.JTextField idTxtField;
     private javax.swing.JLabel interesLbl;
     private javax.swing.JTextField interesTxtField;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel montoLbl;
     private javax.swing.JTextField montoTxtField;
@@ -252,10 +252,16 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
     private javax.swing.JLabel plazoLbl;
     private javax.swing.JTextField plazoTxtField;
     private javax.swing.JTable prestamoTable;
+    private javax.swing.JButton regresarBtn;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void update(Observable o, Object arg) {
-       prestamoTable.setModel(new PrestamoTableModel(model.getCliente()));
+        
+       Cliente cliente = model.getCliente();
+       prestamoTable.setModel(new PrestamoTableModel(model.getCliente().getPrestamos()));
+       nombreTxtField.setText(cliente.getNombre());
+       idTxtField.setText(cliente.getCedula());
+       
     }
 }

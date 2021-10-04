@@ -48,10 +48,12 @@ public class Application {
        viewPrestamo= new sistema.presentacion.prestamo.View();
        controllerPrestamo= new sistema.presentacion.prestamo.Controller(modelPrestamo, viewPrestamo);
         
+       
+       controllerCliente.show();
        //controllerMensualidad.show();
-         controllerPrestamo.show();
+       //controllerPrestamo.show();
        //System.out.println(service.buscarCliente("222"));
-      // controller.show();
+
 // 959b41abfb30a91721b55bc4622433f5e0fa62d8
     }
     

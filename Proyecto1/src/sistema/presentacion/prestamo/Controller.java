@@ -6,6 +6,7 @@
 package sistema.presentacion.prestamo;
 
 import java.util.ArrayList;
+import sistema.Application;
 import sistema.logic.Cliente;
 
 /**
@@ -22,13 +23,24 @@ public class Controller {
         this.view = view;
         
         model.setCliente(new Cliente());
-        model.setPrestamos(new ArrayList<>());
         
         view.setModel(model);
         view.setController(this);
     }
     
+    public void setCliente(Cliente cliente){
+        model.setCliente(cliente);
+        model.commit();
+    }
+    
       public void show(){
         this.view.setVisible(true);
     }
+      
+    public void exit(){
+        this.view.setVisible(false);
+        Application.controllerCliente.show();
+    }
+    
+    
 }

@@ -325,7 +325,7 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
     }//GEN-LAST:event_formWindowClosed
 
     private void prestamosBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prestamosBtnActionPerformed
-        controller.showPrestamo();
+        controller.showPrestamo(cedulaTxtField.getText());
     }//GEN-LAST:event_prestamosBtnActionPerformed
 
     /**
