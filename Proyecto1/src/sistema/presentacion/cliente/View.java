@@ -5,13 +5,16 @@
  */
 package sistema.presentacion.cliente;
 
-import java.awt.Rectangle;
-import java.io.IOException;
+
+
 import java.util.Observable;
-import javax.imageio.ImageIO;
-import javax.swing.Icon;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import sistema.logic.Canton;
 import sistema.logic.Cliente;
+import sistema.logic.Distrito;
+import sistema.logic.Provincia;
+import sistema.logic.Service;
 /**
  *
  * @author 50663
@@ -255,6 +258,7 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
         evt.getX() > 69 && evt.getX() < 114  && evt.getY() > 46 && evt.getY() < 63 ||
         evt.getX() > 31 && evt.getX() < 69  && evt.getY() > 7 && evt.getY() < 69) {
            mapaLbl.setIcon(mapas[5]);
+           
         } 
         else if(evt.getX() > 75 && evt.getX() < 153  && evt.getY() > 24 && evt.getY() < 46 ||
           evt.getX() > 112 && evt.getX() < 154  && evt.getY() > 47 && evt.getY() < 66 ||
@@ -298,13 +302,12 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
     }//GEN-LAST:event_mapaLblMouseClicked
 
     private void guardarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnActionPerformed
-     //  controller.addCliente(new Cliente(cedulaTxtField.getText(),nombreTxtField.getText(),null,null,null));
+       controller.addCliente(new Cliente(cedulaTxtField.getText(),nombreTxtField.getText(), new Provincia(), new Canton(), new Distrito()));
     }//GEN-LAST:event_guardarBtnActionPerformed
 
     private void buscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBtnActionPerformed
        controller.buscarCliente(cedulaTxtField.getText());
        
-       //this method is abo
     }//GEN-LAST:event_buscarBtnActionPerformed
 
     /**
@@ -336,6 +339,14 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
        cedulaTxtField.setText(cliente.getCedula());
        nombreTxtField.setText(cliente.getNombre());
        
+       provinciaTxtField.setText(cliente.getProvincia().toString());
+        
+       cantonComboBox.setModel(new DefaultComboBoxModel(Service.instance().retornaCantones().toArray()));
+       cantonComboBox.setSelectedItem(cliente.getCanton());
+       
+       distritoComboBox.setModel(new DefaultComboBoxModel(Service.instance().retornaDistritos().toArray()));
+       distritoComboBox.setSelectedItem(cliente.getDistrito());
+      
     }
     
     int cantidad=8;

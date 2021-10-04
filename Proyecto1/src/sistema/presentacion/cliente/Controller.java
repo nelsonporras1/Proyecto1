@@ -6,7 +6,6 @@
 package sistema.presentacion.cliente;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import sistema.logic.Cliente;
 import sistema.logic.Service;
 
@@ -40,6 +39,7 @@ public class Controller {
             model.setCliente(cliente);
             model.commit();
         } catch (Exception ex) {
+           
             model.setCliente(new Cliente());
             model.commit();
         }
@@ -56,5 +56,7 @@ public class Controller {
             
         }
      }
+     
+
     
 }

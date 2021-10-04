@@ -16,10 +16,10 @@ import javax.xml.bind.annotation.XmlIDREF;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Cliente {
-    
-  @XmlID      
+       
   private String cedula;
   private String nombre;
+  private int telefono;
    @XmlIDREF
   private Provincia provincia;
    @XmlIDREF
@@ -38,9 +38,9 @@ public class Cliente {
     public Cliente() {
         this.cedula = "";
         this.nombre = "";
-        this.provincia = null;
-        this.canton = null;
-        this.distrito = null;
+        this.provincia = new Provincia();
+        this.canton = new Canton();
+        this.distrito = new Distrito();
         
     }
 
@@ -83,4 +83,18 @@ public class Cliente {
     public void setDistrito(Distrito distrito) {
         this.distrito = distrito;
     }    
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+    
+    public String toString() {
+        return nombre;
+    }
+    
+    
 }

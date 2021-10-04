@@ -5,15 +5,29 @@
  */
 package sistema.logic;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlID;
+
 /**
  *
  * @author 50663
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Distrito {
-    String nombre;
+    
+    @XmlID      
+    private int numero;
+    private String nombre;
 
-    public Distrito(String nombre) {
+    public Distrito(int numero, String nombre) {
+        this.numero=numero;
         this.nombre = nombre;
+    }
+    
+    public Distrito(){
+        this.numero=0;
+        this.nombre="";
     }
 
     public void setNombre(String nombre) {
@@ -24,9 +38,17 @@ public class Distrito {
         return nombre;
     }
 
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
     @Override
     public String toString() {
-        return "Distrito{" + "nombre=" + nombre + '}';
+        return nombre;
     }
 
   
