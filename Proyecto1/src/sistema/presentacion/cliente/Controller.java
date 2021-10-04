@@ -32,6 +32,11 @@ public class Controller {
       public void show(){
         this.view.setVisible(true);
     }
+      public void showPrestamo(){
+          this.view.setVisible(false);
+          
+          sistema.Application.controllerPrestamo.show();
+      }
       
       public void exit(){
         Service.instance().store();

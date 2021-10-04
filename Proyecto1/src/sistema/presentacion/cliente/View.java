@@ -104,6 +104,11 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
         distritoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         prestamosBtn.setText("\nPrestamos");
+        prestamosBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prestamosBtnActionPerformed(evt);
+            }
+        });
 
         mapaLbl.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -318,6 +323,10 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         controller.exit();
     }//GEN-LAST:event_formWindowClosed
+
+    private void prestamosBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prestamosBtnActionPerformed
+        controller.showPrestamo();
+    }//GEN-LAST:event_prestamosBtnActionPerformed
 
     /**
      * @param args the command line arguments

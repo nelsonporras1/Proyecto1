@@ -14,19 +14,21 @@ import java.util.List;
  */
 public class Prestamo {
 
+ private int number;
  private double monto;
+ private String descripcion;
  private double plazo;
  private double tasaInteres;
- private Cliente cliente;
 
     public Prestamo() {
     }
 
-    public Prestamo(double monto, double plazo, double tasaInteres, Cliente cliente) {
+    public Prestamo(int number, double monto, String descripcion, double plazo, double tasaInteres) {
+        this.number= number;
         this.monto = monto;
+        this.descripcion= descripcion;
         this.plazo = plazo;
         this.tasaInteres = tasaInteres;
-        this.cliente= cliente;
     }
 
     public void setMonto(double monto) {
@@ -53,8 +55,6 @@ public class Prestamo {
         return tasaInteres;
     }
  
-
-    
     public double calculaCuota(){
        double num1=monto*tasaInteres;
        double base=(1+tasaInteres);
@@ -82,10 +82,22 @@ public class Prestamo {
     }
         return mensualidades.toString();
     }
-    
-    
-    
-    
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
     
     
     

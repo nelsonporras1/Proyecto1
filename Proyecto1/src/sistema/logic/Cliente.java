@@ -5,6 +5,7 @@
  */
 package sistema.logic;
 
+import java.util.List;
 import java.util.Objects;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -28,7 +29,8 @@ public class Cliente {
   private Canton canton;
    @XmlIDREF
   private Distrito distrito;
-
+  private List<Prestamo> prestamos; 
+   
     public Cliente(String cedula, String nombre, int telefono, Provincia provincia, Canton canton, Distrito distrito) {
         this.cedula = cedula;
         this.nombre = nombre;
@@ -94,6 +96,16 @@ public class Cliente {
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
+
+    public List<Prestamo> getPrestamos() {
+        return prestamos;
+    }
+
+    public void setPrestamos(List<Prestamo> prestamos) {
+        this.prestamos = prestamos;
+    }
+    
+    
     
     public String toString() {
         return nombre;
