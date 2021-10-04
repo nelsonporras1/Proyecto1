@@ -21,31 +21,26 @@ public class Application {
      * @param args the command line arguments
      */
     
-    public static sistema.presentacion.cliente.Model model;
-    public static sistema.presentacion.cliente.View view;
-    public static sistema.presentacion.cliente.Controller controller;
+    public static sistema.presentacion.cliente.Model modelCliente;
+    public static sistema.presentacion.cliente.View viewCliente;
+    public static sistema.presentacion.cliente.Controller controllerCliente;
+    
+    public static sistema.presentacion.prestamo.Model modelPrestamo;
+    public static sistema.presentacion.prestamo.View viewPrestamo;
+      public static sistema.presentacion.prestamo.Controller controllerPrestamo;
+    
     
     public static void main(String[] args) throws Exception {
        
-       model = new sistema.presentacion.cliente.Model();
-       view = new sistema.presentacion.cliente.View();
-       controller = new sistema.presentacion.cliente.Controller(model, view);
-       
-       sistema.logic.Service service = new sistema.logic.Service();
-       
-
+       modelCliente = new sistema.presentacion.cliente.Model();
+       viewCliente = new sistema.presentacion.cliente.View();
+       controllerCliente = new sistema.presentacion.cliente.Controller(modelCliente, viewCliente);
+    
+       modelPrestamo = new sistema.presentacion.prestamo.Model();
+       viewPrestamo = new sistema.presentacion.prestamo.View();
+       controllerPrestamo = new sistema.presentacion.prestamo.Controller(modelPrestamo,viewPrestamo);
         
-           
-          //System.out.println( P1.toString());
-         
-         
-        //sistema.presentacion.cliente.View view = new sistema.presentacion.cliente.View();
-        //view.setVisible(true);
-        
-         sistema.presentacion.prestamo.View view = new sistema.presentacion.prestamo.View();
-        view.setVisible(true);
-        
-        
+      controllerPrestamo.show();
 
        //System.out.println(service.buscarCliente("222"));
       // controller.show();

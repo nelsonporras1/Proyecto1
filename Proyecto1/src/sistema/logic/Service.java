@@ -61,7 +61,16 @@ public class Service {
         }
      }
     
-    
+   /* public void addPrestamo(Prestamo prestamo){
+        
+        Prestamo newPrestamo = data.getClientes().stream().filter(c->c.getCedula().equals(cliente.getCedula())).findFirst().orElse(null);
+         
+        if(newPrestamo!= null){
+            data.getPrestamos().add(prestamo);
+        }
+        
+    }
+*/
      
      public List<Cliente> retornaClientes(){
          

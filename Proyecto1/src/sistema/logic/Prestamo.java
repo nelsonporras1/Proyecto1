@@ -17,14 +17,16 @@ public class Prestamo {
  private double monto;
  private double plazo;
  private double tasaInteres;
+ private Cliente cliente;
 
     public Prestamo() {
     }
 
-    public Prestamo(double monto, double plazo, double tasaInteres) {
+    public Prestamo(double monto, double plazo, double tasaInteres, Cliente cliente) {
         this.monto = monto;
         this.plazo = plazo;
         this.tasaInteres = tasaInteres;
+        this.cliente= cliente;
     }
 
     public void setMonto(double monto) {
