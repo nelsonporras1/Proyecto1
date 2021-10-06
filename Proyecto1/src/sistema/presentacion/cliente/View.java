@@ -267,14 +267,25 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
         evt.getX() > 90 && evt.getX() < 141  && evt.getY() > 69 && evt.getY() < 100 ||
         evt.getX() > 69 && evt.getX() < 114  && evt.getY() > 46 && evt.getY() < 63 ||
         evt.getX() > 31 && evt.getX() < 69  && evt.getY() > 7 && evt.getY() < 69) {
-           mapaLbl.setIcon(mapas[5]);
-           
+        
+        provinciaTxtField.setText(Service.instance().retornaProvincias().get(0).getNombre());
+        cantonComboBox.setModel(new DefaultComboBoxModel(Service.instance().retornaProvincias().get(0).getCantones().toArray()));
+        cantonComboBox.setSelectedItem(Service.instance().retornaProvincias().get(0).getCantones());
+        
+        distritoComboBox.setModel(new DefaultComboBoxModel(Service.instance().retornaProvincias().get(0).getCantones().get(0).getDistritos().toArray()));
+        distritoComboBox.setSelectedItem(Service.instance().retornaProvincias().get(0).getCantones().get(0).getDistritos().toArray());
         } 
         else if(evt.getX() > 75 && evt.getX() < 153  && evt.getY() > 24 && evt.getY() < 46 ||
           evt.getX() > 112 && evt.getX() < 154  && evt.getY() > 47 && evt.getY() < 66 ||
           evt.getX() > 155 && evt.getX() < 208  && evt.getY() > 33 && evt.getY() < 122){
-            mapaLbl.setIcon(mapas[2]);
-            provinciaTxtField.setText("Alajuela");
+           
+        provinciaTxtField.setText(Service.instance().retornaProvincias().get(1).getNombre());
+        cantonComboBox.setModel(new DefaultComboBoxModel(Service.instance().retornaProvincias().get(1).getCantones().toArray()));
+        cantonComboBox.setSelectedItem(Service.instance().retornaProvincias().get(1).getCantones());
+        
+        distritoComboBox.setModel(new DefaultComboBoxModel(Service.instance().retornaProvincias().get(1).getCantones().get(0).getDistritos().toArray()));
+        distritoComboBox.setSelectedItem(Service.instance().retornaProvincias().get(1).getCantones().get(0).getDistritos().toArray());
+       
         }
         else if(evt.getX() > 210 && evt.getX() < 252  && evt.getY() > 46 && evt.getY() < 106 ||
           evt.getX() > 210 && evt.getX() < 233  && evt.getY() > 107 && evt.getY() < 121){
@@ -312,7 +323,8 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
     }//GEN-LAST:event_mapaLblMouseClicked
 
     private void guardarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnActionPerformed
-       controller.addCliente(new Cliente(cedulaTxtField.getText(),nombreTxtField.getText(), 11111,new Provincia(), new Canton(), new Distrito()));
+       controller.addCliente(new Cliente(cedulaTxtField.getText(),nombreTxtField.getText()
+       , 11111,new Provincia(), new Canton(), new Distrito()));
     }//GEN-LAST:event_guardarBtnActionPerformed
 
     private void buscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBtnActionPerformed

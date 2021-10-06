@@ -28,7 +28,7 @@ public class Data {
     private List<Provincia> provincias;
     private List<Canton> cantones;
     private List<Distrito> distritos;
-   // private List<Prestamo> prestamos;
+    private List<Prestamo> prestamos;
    
     public Data(){
         

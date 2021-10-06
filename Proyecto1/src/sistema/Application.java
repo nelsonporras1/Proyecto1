@@ -11,7 +11,6 @@ import java.util.List;
 import sistema.logic.Canton;
 import sistema.logic.Cliente;
 import sistema.logic.Distrito;
-import sistema.logic.Prestamo;
 import sistema.logic.Provincia;
 import sistema.logic.Service;
 
@@ -59,11 +58,13 @@ public class Application {
        
        Distrito distrito = new Distrito(1,"Lepanto");
        List<Distrito> distritos= new ArrayList<>();
+       List<Distrito> distritos2= new ArrayList<>();
        distritos.add(distrito);
              
        
        Canton canton= new Canton(1,"Paquera",distritos);
        List<Canton> cantones= new ArrayList<>();
+       List<Canton> cantones2= new ArrayList<>();
        cantones.add(canton);
        
        
@@ -72,15 +73,26 @@ public class Application {
        Cliente cliente = new Cliente("111","Elias",2222,provincia,canton,distrito);
        
        
+       Service.instance().retornaProvincias().add(provincia);
+       //-------------------------------------------------
+       Distrito distrito2 = new Distrito(1,"Pococi");
+     
+       distritos2.add(distrito2);
+             
        
-       Service.instance().retornaCantones().add(canton);
-       Service.instance().retornaDistritos().add(distrito);
+       Canton canton2= new Canton(1,"Alajueliita",distritos2);
+       cantones2.add(canton2);
        
-//       System.out.println(Service.instance().buscarCliente("111").getNombre());
        
-       //Prestamo prestamo = new Prestamo(1, 20000, "Una bici", 12, 2);
+       Provincia provincia2= new Provincia(1,"Alajuela",cantones2);
        
-       //cliente.getPrestamos().add(prestamo);
+       Service.instance().retornaProvincias().add(provincia2);
+       
+       
+       Service.instance().retornaProvincias().add(provincia);
+       
+       
+      
        
        Service.instance().addCliente(cliente);
        

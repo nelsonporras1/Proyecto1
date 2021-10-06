@@ -37,7 +37,7 @@ public class Provincia {
         this.nombre = nombre;
     }
 
-    public void setCanton(List<Canton> cantones) {
+    public void setCantones(List<Canton> cantones) {
         this.cantones = cantones;
     }
 
@@ -45,7 +45,7 @@ public class Provincia {
         return nombre;
     }
 
-    public List<Canton> getCanton() {
+    public List<Canton> getCantones() {
         return cantones;
     }
 

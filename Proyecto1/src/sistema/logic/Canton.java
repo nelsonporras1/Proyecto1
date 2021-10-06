@@ -41,7 +41,7 @@ public class Canton {
         this.nombre = nombre;
     }
 
-    public void setDistrito(List<Distrito> distritos) {
+    public void setDistritos(List<Distrito> distritos) {
         this.distritos = distritos;
     }
 
@@ -49,7 +49,7 @@ public class Canton {
         return nombre;
     }
 
-    public List<Distrito> getDistrito() {
+    public List<Distrito> getDistritos() {
         return distritos;
     }
 
