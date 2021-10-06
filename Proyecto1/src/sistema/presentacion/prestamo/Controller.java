@@ -8,6 +8,8 @@ package sistema.presentacion.prestamo;
 import java.util.ArrayList;
 import sistema.Application;
 import sistema.logic.Cliente;
+import sistema.logic.Prestamo;
+import sistema.logic.Service;
 
 /**
  *
@@ -40,6 +42,14 @@ public class Controller {
     public void exit(){
         this.view.setVisible(false);
         Application.controllerCliente.show();
+    }
+    
+    public void agregarPrestamo(String cedula, Prestamo prestamo){
+        
+        try{
+        Service.instance().buscarCliente(cedula).setPrestamo(prestamo);
+        model.commit();
+        }catch(Exception ex){}
     }
     
     

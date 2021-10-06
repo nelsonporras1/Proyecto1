@@ -17,17 +17,17 @@ import sistema.logic.Prestamo;
  */
 public class PrestamoTableModel extends AbstractTableModel implements TableModel {
     
-      String[] cols ={ "Numero","Descripcion"};
-      List<Prestamo> prestamos;
+      String[] cols ={ "Numero","Monto", "Plazo","Descripcion","Deudor"};
+      Cliente cliente;
    
-    PrestamoTableModel(List<Prestamo> prestamos){
+    PrestamoTableModel(Cliente cliente){
         
-        this.prestamos=prestamos;
+        this.cliente= cliente;
     }
       
     @Override
     public int getRowCount() {
-        return prestamos.size();
+        return cliente.getPrestamos().size();
     }
     
       @Override
@@ -37,19 +37,22 @@ public class PrestamoTableModel extends AbstractTableModel implements TableModel
 
     @Override
     public int getColumnCount() {
-      return 2;
+      return 5;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
      
-        Prestamo prestamo=  prestamos.get(rowIndex);
+        Prestamo prestamo= cliente.getPrestamos().get(rowIndex);
         
         switch(columnIndex){
             
+            //  String[] cols ={ "Numero","Monto", "Plazo","Descripcion","Deudor"};
             case 0: return ""+prestamo.getNumber();
-            case 1: return prestamo.getDescripcion();
-            
+            case 1: return ""+prestamo.getMonto();
+            case 2: return ""+prestamo.getPlazo();
+            case 3: return prestamo.getDescripcion();
+            case 4: return cliente.getNombre();
             default: return "";
         }
     }

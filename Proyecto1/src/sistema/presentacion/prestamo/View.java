@@ -7,6 +7,7 @@ package sistema.presentacion.prestamo;
 
 import java.util.Observable;
 import sistema.logic.Cliente;
+import sistema.logic.Prestamo;
 import sistema.presentacion.mensualidad.MensualidadTableModel;
 
 /**
@@ -216,11 +217,11 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
     }// </editor-fold>//GEN-END:initComponents
 
     private void agregarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarBtnActionPerformed
-       
+       controller.agregarPrestamo(idTxtField.getText(),new Prestamo(Double.parseDouble(montoTxtField.getText()),descripcionTxtField.getText(), Double.parseDouble(plazoTxtField.getText()), Double.parseDouble(interesTxtField.getText())));
     }//GEN-LAST:event_agregarBtnActionPerformed
 
     private void buscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBtnActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_buscarBtnActionPerformed
 
     private void regresarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarBtnActionPerformed
@@ -259,7 +260,7 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
     public void update(Observable o, Object arg) {
         
        Cliente cliente = model.getCliente();
-       prestamoTable.setModel(new PrestamoTableModel(model.getCliente().getPrestamos()));
+       prestamoTable.setModel(new PrestamoTableModel(cliente));
        nombreTxtField.setText(cliente.getNombre());
        idTxtField.setText(cliente.getCedula());
        

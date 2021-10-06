@@ -5,6 +5,7 @@
  */
 package sistema.logic;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -22,34 +23,34 @@ public class Canton {
     int numero;
     String nombre;
     @XmlIDREF 
-    Distrito distrito;
+    List<Distrito> distritos;
 
-    public Canton(int numero, String nombre, Distrito distritos) {
+    public Canton(int numero, String nombre, List<Distrito> distritos) {
         this.numero= numero;
         this.nombre = nombre;
-        this.distrito = distrito;
+        this.distritos = distritos;
     }
 
     public Canton() { 
         this.numero=0;
         this.nombre= "";
-        this.distrito = new Distrito();
+        this.distritos = new ArrayList<>();
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public void setDistrito(Distrito distrito) {
-        this.distrito = distrito;
+    public void setDistrito(List<Distrito> distritos) {
+        this.distritos = distritos;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public Distrito getDistrito() {
-        return distrito;
+    public List<Distrito> getDistrito() {
+        return distritos;
     }
 
     public int getNumero() {

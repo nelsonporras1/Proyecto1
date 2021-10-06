@@ -39,6 +39,8 @@ public class Cliente {
         this.provincia = provincia;
         this.canton = canton;
         this.distrito = distrito;
+        this.prestamos= new ArrayList<>();
+
     }
 
     public Cliente() {
@@ -101,15 +103,27 @@ public class Cliente {
     public List<Prestamo> getPrestamos() {
         return prestamos;
     }
-
+    
     public void setPrestamos(List<Prestamo> prestamos) {
         this.prestamos = prestamos;
-    }
-    
-    
+    }  
     
     public String toString() {
         return nombre;
+    }
+    
+    public void asignaNumeros(){
+        
+        for(int i=0; i< this.getPrestamos().size(); i++){
+            
+            this.getPrestamos().get(i).setNumber(i+1);
+        }
+    }
+    
+    public void setPrestamo(Prestamo prestamo){
+        
+        this.getPrestamos().add(prestamo);
+        asignaNumeros();
     }
     
      @Override

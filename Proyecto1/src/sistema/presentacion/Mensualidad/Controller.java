@@ -23,7 +23,7 @@ public class Controller {
         this.view = view;
         // invoke Model sets for initialization before linking to the view
         // problably get the data from Service
-        model.setPrestamo(new Prestamo(0,0.0,"",0.0,0.0));
+   //     model.setPrestamo(new Prestamo(0,0.0,"",0.0,0.0));
         model.setFacturas(new ArrayList<>());
         
         

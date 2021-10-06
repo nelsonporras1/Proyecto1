@@ -28,8 +28,7 @@ public class Prestamo {
         this.tasaInteres=0;
     }
 
-    public Prestamo(int number, double monto, String descripcion, double plazo, double tasaInteres) {
-        this.number= number;
+    public Prestamo( double monto, String descripcion, double plazo, double tasaInteres) {
         this.monto = monto;
         this.descripcion= descripcion;
         this.plazo = plazo;
