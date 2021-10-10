@@ -120,6 +120,7 @@ public class Cliente {
         }
     }
     
+    
     public void setPrestamo(Prestamo prestamo){
         
         this.getPrestamos().add(prestamo);

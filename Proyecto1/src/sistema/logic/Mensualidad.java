@@ -23,6 +23,13 @@ public class Mensualidad {
         this.amortizacion=amortizacion;
     }
     
+    public Mensualidad(){
+        this.numero=0;
+        this.saldo=0;
+        this.interes=0;
+        this.amortizacion=0;
+    }
+    
     public void setNumero( double numero){
         this.numero=numero;
     };
@@ -40,19 +47,19 @@ public class Mensualidad {
     };
     
         public double getNumero(){
-            return numero;
+            return (int)numero;
         };
 
         public double getSaldo(){
-            return saldo;
+            return Math.round(saldo);
         };
 
         public double getInteres(){
-            return interes;
+            return Math.round(interes);
         };
 
         public double getAmortizacion(){
-        return amortizacion;
+        return Math.round(amortizacion);
         };
     
        public String toString(){

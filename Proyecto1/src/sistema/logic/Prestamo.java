@@ -19,6 +19,8 @@ public class Prestamo {
  private String descripcion;
  private double plazo;
  private double tasaInteres;
+ private List<Mensualidad> listaMensualidades= new ArrayList<>();
+ private List<Facturas> listaFacturas= new ArrayList<>();
 
     public Prestamo() {
         this.number=0;
@@ -26,13 +28,15 @@ public class Prestamo {
         this.descripcion="";
         this.plazo=0;
         this.tasaInteres=0;
+        llenarMensualidades();
     }
 
-    public Prestamo( double monto, String descripcion, double plazo, double tasaInteres) {
+    public Prestamo(double monto, String descripcion, double plazo, double tasaInteres) {
         this.monto = monto;
         this.descripcion= descripcion;
         this.plazo = plazo;
         this.tasaInteres = tasaInteres;
+        llenarMensualidades();
     }
 
     public void setMonto(double monto) {
@@ -52,39 +56,46 @@ public class Prestamo {
     }
 
     public double getPlazo() {
-        return plazo;
+        return Math.round(plazo);
     }
 
     public double getTasaInteres() {
-        return tasaInteres;
+        return tasaInteres *100;
     }
  
-    public double calculaCuota(){
-       double num1=monto*tasaInteres;
-       double base=(1+tasaInteres);
-       double exponente=plazo*-1;
-       double num2= 1-(Math.pow(base,exponente));
-       double cuota= num1/num2;
-    return cuota;
+   public double cuotaMensual(){
+    
+    return (int)((monto*(tasaInteres/100)) / (1 - Math.pow(1+(tasaInteres/100),-plazo)));
     }
     
-    public String llenarMensualidades(){
-        double saldoActual =monto;
-        int num=1;
-        double mI=saldoActual*getTasaInteres();
-        double mA=calculaCuota()-mI;
-        List<Mensualidad> mensualidades= new ArrayList<>();
-        
-        for(int i=1;i<= getPlazo();i++){
-            Mensualidad m =new Mensualidad(num,saldoActual,mI,mA);
-            mensualidades.add(m);
-            saldoActual=m.getSaldo()-m.getAmortizacion();
-           mI=saldoActual*getTasaInteres();
-           mA=calculaCuota()-mI;
-            num++;
+   public void restarPlazo(){
+       this.plazo = plazo-1;
+   }
+   
+   public void restaMonto(double cuota){
+       this.monto = monto-cuota;
+   }
     
+    public void llenarMensualidades(){
+     
+  
+   Mensualidad mensualidad;
+   double saldo=monto;
+   double cuotaMes= this.cuotaMensual();
+   double montoInteres=0;
+   double amortizacion=0;
+   
+   for(int i=0; i<plazo; i++){
+       
+   montoInteres= saldo*tasaInteres/100;
+   amortizacion= cuotaMes-montoInteres;
+   
+   mensualidad= new Mensualidad(i+1,saldo,montoInteres,amortizacion);
+
+   listaMensualidades.add(mensualidad);
+   saldo = saldo - amortizacion;
     }
-        return mensualidades.toString();
+    
     }
 
     public int getNumber() {
@@ -102,13 +113,23 @@ public class Prestamo {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
-    
-    
-    @Override
-    public String toString(){
-    return "monto :" + getMonto()+"\n"+"plazo :" + getPlazo()+"\n"+"tasa interes :" + getTasaInteres()+"\n"+"Cuota :" + calculaCuota()+"\n";
-   
+
+    public List<Mensualidad> getListaMensualidades() {
+        return listaMensualidades;
     }
+
+    public void setListaMensualidades(List<Mensualidad> listaMensualidades) {
+        this.listaMensualidades = listaMensualidades;
+    }
+
+    public List<Facturas> getListaFacturas() {
+        return listaFacturas;
+    }
+
+    public void setListaFacturas(List<Facturas> listaFacturas) {
+        this.listaFacturas = listaFacturas;
+    }
+    
+    
     
 }

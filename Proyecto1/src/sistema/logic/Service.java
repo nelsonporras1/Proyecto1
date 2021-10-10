@@ -59,6 +59,11 @@ public class Service {
         if(newCliente == null){
             data.getClientes().add(cliente);
         }
+        else{
+            newCliente.setProvincia(cliente.getProvincia());
+            newCliente.setCanton(cliente.getCanton());
+            newCliente.setDistrito(cliente.getDistrito());
+        }
      }
      
      public List<Cliente> retornaClientes(){
@@ -81,5 +86,15 @@ public class Service {
         return data.getCantones();
      }
      
+     public List<Facturas> retornaFacturas(){
+         
+         return data.getFacturas();
+     }
      
+    public Provincia buscaProvincia(String name) throws Exception{
+        
+        Provincia provincia = data.getProvincias().stream().filter(c->c.getNombre().equals(name)).findFirst().orElse(null);
+        if(provincia != null) {return provincia;  }
+        else{ throw new Exception("Provincia no existe");  }
+    }
 }

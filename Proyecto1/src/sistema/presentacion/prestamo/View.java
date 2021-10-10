@@ -8,7 +8,7 @@ package sistema.presentacion.prestamo;
 import java.util.Observable;
 import sistema.logic.Cliente;
 import sistema.logic.Prestamo;
-import sistema.presentacion.mensualidad.MensualidadTableModel;
+
 
 /**
  *
@@ -59,24 +59,26 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
         jScrollPane1 = new javax.swing.JScrollPane();
         prestamoTable = new javax.swing.JTable();
         agregarBtn = new javax.swing.JButton();
-        buscarBtn = new javax.swing.JButton();
         regresarBtn = new javax.swing.JButton();
         montoLbl = new javax.swing.JLabel();
         descripcionLbl = new javax.swing.JLabel();
         plazoLbl = new javax.swing.JLabel();
-        cuotaLbl = new javax.swing.JLabel();
         interesLbl = new javax.swing.JLabel();
         montoTxtField = new javax.swing.JTextField();
         descripcionTxtField = new javax.swing.JTextField();
         plazoTxtField = new javax.swing.JTextField();
-        cuotaTxtField = new javax.swing.JTextField();
         interesTxtField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Prestamo Clientes");
 
         nombreLbl.setText("Nombre ");
 
+        nombreTxtField.setEditable(false);
+
         idTextField.setText("ID");
+
+        idTxtField.setEditable(false);
 
         prestamoTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -89,19 +91,17 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        prestamoTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                prestamoTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(prestamoTable);
 
         agregarBtn.setText("Agregar");
         agregarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agregarBtnActionPerformed(evt);
-            }
-        });
-
-        buscarBtn.setText("Buscar");
-        buscarBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarBtnActionPerformed(evt);
             }
         });
 
@@ -118,8 +118,6 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
 
         plazoLbl.setText("Plazo");
 
-        cuotaLbl.setText("Cuota");
-
         interesLbl.setText("Interes");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -127,56 +125,57 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(nombreLbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nombreTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(agregarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(regresarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
+                                .addGap(20, 20, 20)
+                                .addComponent(idTextField)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(idTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGap(5, 5, 5)
                                         .addComponent(montoTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(plazoTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(interesTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(cuotaTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(plazoTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(interesLbl)
-                                        .addGap(67, 67, 67)
-                                        .addComponent(cuotaLbl)
-                                        .addGap(23, 23, 23)))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(descripcionLbl)
-                                    .addComponent(descripcionTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(19, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGap(28, 28, 28)
+                                        .addComponent(montoLbl)
+                                        .addGap(80, 80, 80)
+                                        .addComponent(plazoLbl)
+                                        .addGap(0, 22, Short.MAX_VALUE)))
+                                .addGap(42, 42, 42)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(interesTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(39, 39, 39))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(interesLbl)
+                                .addGap(58, 58, 58)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(descripcionTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(descripcionLbl)
+                                .addGap(15, 15, 15)))
+                        .addGap(27, 27, 27))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(montoLbl)
-                        .addGap(57, 57, 57)
-                        .addComponent(plazoLbl))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(idTextField)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(idTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(13, 13, 13)))
-                .addGap(328, 328, 328))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(agregarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(regresarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(nombreLbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nombreTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,21 +193,18 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
                     .addComponent(montoLbl)
                     .addComponent(plazoLbl)
                     .addComponent(interesLbl)
-                    .addComponent(descripcionLbl)
-                    .addComponent(cuotaLbl))
+                    .addComponent(descripcionLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(montoTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(plazoTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(interesTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(descripcionTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cuotaTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(descripcionTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(agregarBtn)
-                    .addComponent(buscarBtn)
                     .addComponent(regresarBtn))
                 .addContainerGap())
         );
@@ -220,13 +216,16 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
        controller.agregarPrestamo(idTxtField.getText(),new Prestamo(Double.parseDouble(montoTxtField.getText()),descripcionTxtField.getText(), Double.parseDouble(plazoTxtField.getText()), Double.parseDouble(interesTxtField.getText())));
     }//GEN-LAST:event_agregarBtnActionPerformed
 
-    private void buscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBtnActionPerformed
-        
-    }//GEN-LAST:event_buscarBtnActionPerformed
-
     private void regresarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarBtnActionPerformed
         controller.exit();
     }//GEN-LAST:event_regresarBtnActionPerformed
+
+    private void prestamoTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamoTableMouseClicked
+      
+        if(evt.getClickCount()==2){
+            controller.showPagos(prestamoTable.getSelectedRow());
+        }
+    }//GEN-LAST:event_prestamoTableMouseClicked
     
     
     /**
@@ -236,9 +235,6 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregarBtn;
-    private javax.swing.JButton buscarBtn;
-    private javax.swing.JLabel cuotaLbl;
-    private javax.swing.JTextField cuotaTxtField;
     private javax.swing.JLabel descripcionLbl;
     private javax.swing.JTextField descripcionTxtField;
     private javax.swing.JLabel idTextField;
@@ -264,5 +260,9 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
        nombreTxtField.setText(cliente.getNombre());
        idTxtField.setText(cliente.getCedula());
        
+       montoTxtField.setText("");
+       plazoTxtField.setText("");
+       interesTxtField.setText("");
+       descripcionTxtField.setText("");
     }
 }

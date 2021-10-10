@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import sistema.Application;
 import sistema.logic.Cliente;
+import sistema.logic.Provincia;
 import sistema.logic.Service;
 
 /**
@@ -73,5 +74,20 @@ public class Controller {
           catch (Exception ex) {
         }
      }
+    public Cliente retornaCliente(String cedula) {
+        
+        try {
+        Cliente cliente = Service.instance().buscarCliente(cedula);
+        return cliente;
+        
+        } catch (Exception ex) {
+    }
+        return new Cliente();
+}
     
+    public Provincia buscaProvincia(String name) throws Exception{
+        
+        return Service.instance().buscaProvincia(name);
+    }
+
 }

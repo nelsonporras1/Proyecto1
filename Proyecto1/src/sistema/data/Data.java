@@ -13,6 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import sistema.logic.Canton;
 import sistema.logic.Cliente;
 import sistema.logic.Distrito;
+import sistema.logic.Facturas;
 import sistema.logic.Prestamo;
 import sistema.logic.Provincia;
 
@@ -29,6 +30,7 @@ public class Data {
     private List<Canton> cantones;
     private List<Distrito> distritos;
     private List<Prestamo> prestamos;
+    private List<Facturas> facturas;
    
     public Data(){
         
@@ -36,7 +38,7 @@ public class Data {
          provincias= new ArrayList<>();
          cantones= new ArrayList<>();
          distritos= new ArrayList<>();
-        
+         facturas= new ArrayList<>();
     }
 
     public List<Cliente> getClientes() {
@@ -70,5 +72,23 @@ public class Data {
     public void setDistritos(List<Distrito> distritos) {
         this.distritos = distritos;
     }
+
+    public List<Prestamo> getPrestamos() {
+        return prestamos;
+    }
+
+    public void setPrestamos(List<Prestamo> prestamos) {
+        this.prestamos = prestamos;
+    }
+
+    public List<Facturas> getFacturas() {
+        return facturas;
+    }
+
+    public void setFacturas(List<Facturas> facturas) {
+        this.facturas = facturas;
+    }
+ 
+    
     
 }

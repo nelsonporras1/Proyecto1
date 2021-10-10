@@ -49,6 +49,16 @@ public class Provincia {
         return cantones;
     }
 
+    public Canton retornaCanton(String name){
+        
+        for(int i=0; i< this.getCantones().size(); i++){
+            
+            if(this.getCantones().get(i).getNombre().equals(name)){
+                return this.getCantones().get(i);
+            }
+        }
+        return new Canton();
+    }
     public int getNumero() {
         return numero;
     }

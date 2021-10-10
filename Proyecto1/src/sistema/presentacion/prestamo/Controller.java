@@ -5,7 +5,6 @@
  */
 package sistema.presentacion.prestamo;
 
-import java.util.ArrayList;
 import sistema.Application;
 import sistema.logic.Cliente;
 import sistema.logic.Prestamo;
@@ -23,7 +22,6 @@ public class Controller {
     public Controller(Model model, View view) {
         this.model = model;
         this.view = view;
-        
         model.setCliente(new Cliente());
         
         view.setModel(model);
@@ -44,6 +42,17 @@ public class Controller {
         Application.controllerCliente.show();
     }
     
+    public void showPagos(int row){
+        
+        try{
+             Prestamo prestamo= model.getCliente().getPrestamos().get(row);
+            Application.controllerPagos.setPrestamo(prestamo);
+             this.view.setVisible(false);
+             Application.controllerPagos.show();
+            
+        }catch(Exception ex){}
+    }
+    
     public void agregarPrestamo(String cedula, Prestamo prestamo){
         
         try{
@@ -51,6 +60,5 @@ public class Controller {
         model.commit();
         }catch(Exception ex){}
     }
-    
-    
+   
 }
