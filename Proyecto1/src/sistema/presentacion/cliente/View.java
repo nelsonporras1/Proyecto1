@@ -291,7 +291,9 @@ public class View extends javax.swing.JFrame  implements java.util.Observer{
         }
         else if(evt.getX() > 210 && evt.getX() < 252  && evt.getY() > 46 && evt.getY() < 106 ||
           evt.getX() > 210 && evt.getX() < 233  && evt.getY() > 107 && evt.getY() < 121){
-            mapaLbl.setIcon(mapas[3]);
+            
+         provinciaTxtField.setText(Service.instance().retornaProvincias().get(6).getNombre());
+         cantonComboBox.setModel(new DefaultComboBoxModel(Service.instance().retornaProvincias().get(6).getCantones().toArray()));
         }
         else if(evt.getX() > 254 && evt.getX() < 294  && evt.getY() > 55 && evt.getY() < 118 ||
           evt.getX() > 295 && evt.getX() < 324  && evt.getY() > 97 && evt.getY() < 118 ||

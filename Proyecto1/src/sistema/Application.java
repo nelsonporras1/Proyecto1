@@ -69,6 +69,8 @@ public class Application {
        List<Distrito> distritos11= new ArrayList<>();
        List<Distrito> distritos12= new ArrayList<>();
        List<Distrito> distritos13= new ArrayList<>();
+       List<Distrito> distritos14= new ArrayList<>();
+       List<Distrito> distritos15= new ArrayList<>();
        distritos3.add(distrito3);
        distritos3.add(distrito8);
        distritos.add(distrito);
@@ -83,6 +85,7 @@ public class Application {
        List<Canton> cantones5= new ArrayList<>();
        List<Canton> cantones6= new ArrayList<>();
        List<Canton> cantones7= new ArrayList<>();
+       List<Canton> cantones8= new ArrayList<>();
        cantones.add(canton);
        cantones.add(canton3);
        
@@ -203,8 +206,31 @@ public class Application {
        cantones7.add(canton12);
        
        Provincia provincia6= new Provincia(6,"Puntarenas",cantones7);
+      
+       //------------------------------------------------------------------------
        
+       Distrito distrito25 = new Distrito(1,"Mercedez");
+       Distrito distrito26 = new Distrito(2, "San Frascisco");
+     
+       distritos14.add(distrito25);
+       distritos14.add(distrito26);     
        
+       Canton canton13 = new Canton(1,"Barba",distritos14);
+    
+       
+       Distrito distrito27 = new Distrito(1,"La Ribera");
+       Distrito distrito28 = new Distrito(2, "La Asuncion");
+      
+       distritos15.add(distrito27);
+       distritos15.add(distrito28);
+       
+       Canton canton14= new Canton(2,"Belen",distritos15);
+       cantones8.add(canton13);
+       cantones8.add(canton14);
+       
+       Provincia provincia7= new Provincia(3,"Heredia",cantones8);
+     
+       //-----------------------------------------------------------------------
         Service.instance().retornaProvincias().add(provincia);
               
         Service.instance().retornaProvincias().add(provincia2);
@@ -216,6 +242,8 @@ public class Application {
         Service.instance().retornaProvincias().add(provincia5);
         
         Service.instance().retornaProvincias().add(provincia6);
+        
+        Service.instance().retornaProvincias().add(provincia7);
        
         Service.instance().retornaCantones().add(canton);
         
