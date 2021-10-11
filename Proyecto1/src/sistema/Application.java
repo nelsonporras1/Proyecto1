@@ -11,6 +11,8 @@ import java.util.List;
 import sistema.logic.Canton;
 import sistema.logic.Cliente;
 import sistema.logic.Distrito;
+import static sistema.logic.PDF.DEST;
+import static sistema.logic.PDF.createPdf3;
 import sistema.logic.Provincia;
 import sistema.logic.Service;
 
@@ -260,7 +262,9 @@ public class Application {
         Service.instance().addCliente(cliente2);
           
         controllerCliente.show();
+        
       
+      createPdf3(DEST,Service.instance().retornaClientes());
     }
     
 }
